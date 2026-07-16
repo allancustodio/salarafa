@@ -1,8 +1,13 @@
+'use client';
+
+import { useState } from "react";
 import { config } from "../config";
 import { CalendarDays } from "lucide-react";
 
-export default function SemanaDaSala({ hasPrint = false }) {
+export default function SemanaDaSala() {
   const w = config.semana;
+  const [showImage, setShowImage] = useState(true);
+
   return (
     <section className="section section-alt" id="semana">
       <div className="wrap">
@@ -36,8 +41,12 @@ export default function SemanaDaSala({ hasPrint = false }) {
 
           <div className="semana-print reveal">
             {/* Coloque o print da enquete em public/semana/enquete.png */}
-            {hasPrint ? (
-              <img src={w.print} alt="Enquete da semana no WhatsApp" />
+            {showImage ? (
+              <img
+                src={w.print}
+                alt="Enquete da semana no WhatsApp"
+                onError={() => setShowImage(false)}
+              />
             ) : (
               <div className="semana-print-ph">
                 Solte o print da enquete do WhatsApp em <br />

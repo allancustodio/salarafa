@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-import { config } from "./config";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import TickerTape from "./components/TickerTape";
@@ -31,17 +30,8 @@ function getDepoimentos() {
   }
 }
 
-function hasSemanaPrint() {
-  try {
-    return fs.existsSync(path.join(process.cwd(), "public", config.semana.print));
-  } catch {
-    return false;
-  }
-}
-
 export default function Home() {
   const depoimentos = getDepoimentos();
-  const semanaPrint = hasSemanaPrint();
 
   return (
     <>
@@ -69,7 +59,7 @@ export default function Home() {
           </div>
         </section> */}
 
-        <SemanaDaSala hasPrint={semanaPrint} />
+        <SemanaDaSala />
         <Cursos />
         <Historia />
         <Depoimentos files={depoimentos} />
