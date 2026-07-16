@@ -77,7 +77,7 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-copy">
           <div className="hero-pill">
-            <span className="hero-dot" /> Sala ao vivo · todo dia útil
+            <span className="hero-dot" /> Sala ao vivo
           </div>
           <h1>
             <span className="ln1">De vendedor de verdura</span>

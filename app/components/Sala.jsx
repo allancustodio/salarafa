@@ -20,7 +20,7 @@ export default function Sala() {
             A minha <span className="grad">mesa ao vivo</span>, todo dia
           </h2>
           <p className="lead">
-            Todo dia útil eu abro o pregão com você. Não é sinal pronto pra apertar botão — é você me
+            Todo dia eu abro o pregão com você. Não é sinal pronto pra apertar botão — é você me
             vendo operar e entendendo o porquê de cada decisão, em tempo real.
           </p>
         </div>

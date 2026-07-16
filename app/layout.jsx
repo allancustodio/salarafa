@@ -23,7 +23,7 @@ const mono = JetBrains_Mono({
 export const metadata = {
   title: "Rafael Fossalussa — Trader profissional e educador",
   description:
-    "De vendedor de verdura a trader profissional. Sala ao vivo todo dia útil: índice, dólar e o mercado global. Método, disciplina e leitura de verdade.",
+    "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global. Método, disciplina e leitura de verdade.",
 };
 
 export default function RootLayout({ children }) {
