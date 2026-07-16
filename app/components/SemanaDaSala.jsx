@@ -50,7 +50,7 @@ export default function SemanaDaSala() {
             ) : (
               <div className="semana-print-ph">
                 Solte o print da enquete do WhatsApp em <br />
-                <code style={{ fontFamily: "var(--mono)", color: "var(--emerald-br)" }}>
+                <code style={{ fontFamily: "var(--mono)", fontWeight: 500, color: "var(--emerald-br)" }}>
                   /public/semana/enquete.png
                 </code>
                 <br /> que ele aparece aqui.
