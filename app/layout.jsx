@@ -24,6 +24,28 @@ export const metadata = {
   title: "Rafael Fossalussa — Trader profissional e educador",
   description:
     "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global. Método, disciplina e leitura de verdade.",
+  openGraph: {
+    title: "Rafael Fossalussa — Trader profissional e educador",
+    description:
+      "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global. Método, disciplina e leitura de verdade.",
+    url: "https://salarafafossalussa.teksolutions.io",
+    type: "website",
+    images: [
+      {
+        url: "https://salarafafossalussa.teksolutions.io/rafael-hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Rafael Fossalussa - Trader profissional",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rafael Fossalussa — Trader profissional e educador",
+    description:
+      "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global.",
+    image: "https://salarafafossalussa.teksolutions.io/rafael-hero.png",
+  },
 };
 
 export default function RootLayout({ children }) {
