@@ -1,12 +1,23 @@
 import { config } from "../config";
 import { ArrowUpRight } from "lucide-react";
 
+function getCursoImage(slug) {
+  const candidates = [
+    `/cursos/${slug}.webp`,
+    `/cursos/${slug}.png`,
+    `/cursos/${slug}.jpg`,
+    `/cursos/${slug}.jpeg`,
+  ];
+
+  return candidates;
+}
+
 export default function Cursos() {
   const { scalp, leilao, gl2 } = config.produtos;
   const cursos = [
-    { ...scalp, tag: "Entrada" },
-    { ...leilao, tag: "Entrada" },
-    { ...gl2, tag: "Método completo" },
+    { ...scalp, tag: "Entrada", slug: "scalp" },
+    { ...leilao, tag: "Entrada", slug: "leilao" },
+    { ...gl2, tag: "Método completo", slug: "linear" },
   ];
 
   return (
@@ -28,6 +39,13 @@ export default function Cursos() {
             const emBreve = c.url === "#";
             return (
               <article className="curso reveal" key={c.nome}>
+                <div style={{ marginBottom: 14, borderRadius: 16, overflow: "hidden", border: "1px solid var(--line)" }}>
+                  <img
+                    src={getCursoImage(c.slug)[0]}
+                    alt={c.nome}
+                    style={{ width: "100%", height: 180, objectFit: "cover", display: "block" }}
+                  />
+                </div>
                 <span className="curso-tag">{c.tag}</span>
                 <h3>{c.nome}</h3>
                 <p>{c.desc}</p>
