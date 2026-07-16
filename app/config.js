@@ -27,6 +27,12 @@ export const config = {
       nota: "Assinatura semestral · 6 meses",
       url: "https://hotmart.com/pt-br/marketplace/produtos/sala-gl-2-0/X102809916R?sck=HOTMART_MEM_CA",
     },
+    salaLive: {
+      nome: "Sala ao Vivo",
+      preco: "R$ 200/mês (Semestral)",
+      desc: "Transmissão ao vivo diária com operações reais e análise em tempo real.",
+      url: "https://hotmart.com/pt-br/marketplace/produtos/sala-gl-2-0/X102809916R?sck=HOTMART_PRODUCT_PAGE",
+    },
     scalp: {
       nome: "Método Scalping",
       preco: "R$ 899",
@@ -35,9 +41,9 @@ export const config = {
     },
     leilao: {
       nome: "Leilão do Dólar",
-      preco: "R$ 899",
+      preco: "R$ 1.299,00",
       desc: "O leilão do dólar futuro destrinchado, passo a passo.",
-      url: "#", // LINK QUEBRADO — reemitir na Hotmart e trocar aqui
+      url: "https://hotmart.com/pt-br/marketplace/produtos/metodo-leilao-dolar/Q95182127U?sck=HOTMART_PRODUCT_PAGE", // LINK QUEBRADO — reemitir na Hotmart e trocar aqui
     },
     gl2: {
       nome: "Gradiente Linear 2.0",

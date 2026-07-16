@@ -13,8 +13,9 @@ function getCursoImage(slug) {
 }
 
 export default function Cursos() {
-  const { scalp, leilao, gl2 } = config.produtos;
+  const { salaLive, scalp, leilao, gl2 } = config.produtos;
   const cursos = [
+    { ...salaLive, tag: "Ao vivo", slug: "gl" },
     { ...scalp, tag: "Entrada", slug: "scalp" },
     { ...leilao, tag: "Entrada", slug: "leilao" },
     { ...gl2, tag: "Método completo", slug: "linear" },
@@ -59,7 +60,6 @@ export default function Cursos() {
                 >
                   {emBreve ? "Em breve" : "Ver o curso"} <ArrowUpRight size={16} />
                 </a>
-                {emBreve && <p className="curso-soon">Link em atualização — volte já já.</p>}
               </article>
             );
           })}

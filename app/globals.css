@@ -236,7 +236,7 @@ body{
    CURSOS
    ============================================================ */
 .cursos-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(40px,5vw,56px)}
+.cursos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(40px,5vw,56px)}
 .curso{
   display:flex;flex-direction:column;background:var(--panel);
   border:1px solid var(--line-soft);border-radius:18px;padding:30px 26px;transition:.3s;position:relative;overflow:hidden;
