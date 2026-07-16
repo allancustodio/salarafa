@@ -32,7 +32,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://salarafafossalussa.teksolutions.io/rafael-hero.png",
+        url: "https://salarafafossalussa.teksolutions.io/rafa_preview.png",
         width: 1200,
         height: 630,
         alt: "Rafael Fossalussa - Trader profissional",
@@ -44,7 +44,7 @@ export const metadata = {
     title: "Rafael Fossalussa — Trader profissional e educador",
     description:
       "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global.",
-    image: "https://salarafafossalussa.teksolutions.io/rafael-hero.png",
+    image: "https://salarafafossalussa.teksolutions.io/rafa_preview.png",
   },
 };
 
