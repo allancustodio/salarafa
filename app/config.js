@@ -57,9 +57,9 @@ export const config = {
   // Coloque o print da enquete em: public/semana/enquete.png
   semana: {
     referencia: "Semana de 07 a 11 de julho",
-    positivo: 18,
-    negativo: 6,
-    aprendendo: 11,
+    positivo: 17,
+    negativo: 1,
+    aprendendo: 5,
     print: "/semana/enquete.png", // se o arquivo não existir, aparece um placeholder
     historico: [
       { semana: "24-28 jun", gain: 16, loss: 5, nao_operei: 8, simulador: 12 },
