@@ -61,5 +61,11 @@ export const config = {
     negativo: 6,
     aprendendo: 11,
     print: "/semana/enquete.png", // se o arquivo não existir, aparece um placeholder
+    historico: [
+      { semana: "24-28 jun", gain: 16, loss: 5, nao_operei: 8, simulador: 12 },
+      { semana: "01-05 jul", gain: 17, loss: 7, nao_operei: 9, simulador: 10 },
+      { semana: "08-12 jul", gain: 19, loss: 4, nao_operei: 6, simulador: 14 },
+      { semana: "15-19 jul", gain: 18, loss: 6, nao_operei: 11, simulador: 9 }, // semana atual
+    ],
   },
 };
