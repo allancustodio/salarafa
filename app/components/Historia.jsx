@@ -14,7 +14,7 @@ export default function Historia() {
               Eu sei o que é começar do zero
             </h2>
             <p>
-              Eu vendia verdura. Trabalhava com a Ceagesp, em Bauru, carregando caixote e acordando
+              Eu vendia verdura. Trabalhava vendendo verduras, carregando caixote e acordando
               de madrugada. Mercado financeiro, pra mim, era coisa de outro mundo — de gente de terno,
               não de gente como eu.
             </p>

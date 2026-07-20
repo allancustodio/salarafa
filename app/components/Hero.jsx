@@ -85,7 +85,7 @@ export default function Hero() {
             <span className="ln2">a trader profissional.</span>
           </h1>
           <p className="hero-sub">
-            Eu comecei na Ceagesp, carregando caixote. Hoje eu opero <strong>ao vivo todo dia</strong> —
+            Eu vendia verduras, carregando caixote. Hoje eu opero <strong>ao vivo todo dia</strong> —
             índice, dólar e o mercado lá fora (Nasdaq, ouro, Bitcoin) — e mostro, na prática, como
             leio o gráfico com <strong>método e disciplina</strong>.
           </p>
