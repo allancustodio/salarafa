@@ -5,7 +5,7 @@ const FEATS = [
   { ic: Radio, t: "Ao vivo, todo dia útil", d: "Do café da manhã ao fechamento, operando junto com você." },
   { ic: Globe, t: "Do índice ao global", d: "Mini índice e dólar aqui, e o que move o mundo lá fora: Nasdaq, ouro e Bitcoin." },
   { ic: LineChart, t: "Análise técnica de verdade", d: "Leitura de gráfico, estrutura e zonas — o raciocínio, não o palpite." },
-  { ic: ShieldCheck, t: "Análise com CNPI na sala", d: `${config.cnpiNome} acompanha as análises (caráter informativo).` },
+  { ic: ShieldCheck, t: "Gestão e responsabilidade", d: "Rafael mostra como risco e disciplina fazem parte de cada decisão." },
   { ic: Users, t: "Comunidade que estuda junto", d: "Você não fica sozinho na frente da tela." },
 ];
 

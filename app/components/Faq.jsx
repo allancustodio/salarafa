@@ -22,11 +22,11 @@ const ITEMS = [
   },
   {
     q: "Como funciona a assinatura da sala?",
-    a: "A Sala Rafael Fossalussa é semestral: você entra por 6 meses. Isso existe de propósito — trader não se forma em uma semana, e eu prefiro caminhar junto com quem está comprometido com o processo.",
+    a: "A Sala Rafael Fossalussa é apresentada no site no plano semestral, com duração de 6 meses, pelo equivalente a R$ 200 por mês. As condições finais de cobrança e pagamento são exibidas no checkout da Hotmart antes da confirmação.",
   },
   {
     q: "Isso é recomendação de investimento?",
-    a: "Não. Todo o conteúdo é educacional. As análises apresentadas na sala são de responsabilidade do analista credenciado, têm caráter informativo e não constituem recomendação ou oferta de investimento. Renda variável envolve risco de perda, e resultado passado não garante resultado futuro.",
+    a: "Não. Todo o conteúdo é educacional e informativo e não constitui recomendação ou oferta de investimento. Renda variável envolve risco de perda, e resultado passado não garante resultado futuro.",
   },
 ];
 

@@ -21,6 +21,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://salarafafossalussa.teksolutions.io"),
   title: "Rafael Fossalussa — Trader profissional e educador",
   description:
     "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global. Método, disciplina e leitura de verdade.",

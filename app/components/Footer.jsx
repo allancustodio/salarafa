@@ -38,14 +38,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* AVISO LEGAL — troque o número do CNPI em app/config.js quando confirmar */}
         <div className="disclaimer">
           <strong>Aviso legal</strong>
-          As análises apresentadas na sala são de responsabilidade do analista {config.cnpiNome} —
-          CNPI {config.cnpiNumero}, elaboradas de forma independente e representando a visão do
-          analista. Todo o conteúdo tem caráter educacional e informativo e não constitui recomendação
-          ou oferta de compra ou venda de qualquer ativo. Investimentos em renda variável envolvem
-          risco de perda; resultados passados não garantem resultados futuros.
+          Todo o conteúdo tem caráter educacional e informativo e não constitui recomendação, consultoria
+          ou oferta de compra ou venda de qualquer ativo. Investimentos em renda variável envolvem risco
+          de perda; resultados passados não garantem resultados futuros.
         </div>
 
         <div className="foot-bottom">

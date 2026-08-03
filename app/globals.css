@@ -246,6 +246,7 @@ body{
 .curso h3{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;margin-bottom:10px}
 .curso p{font-size:14px;color:var(--text-2);line-height:1.65;flex:1;margin-bottom:24px}
 .curso-price{font-family:var(--display);font-size:26px;font-weight:600;color:var(--text);margin-bottom:20px}
+.curso-period{margin-left:3px;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--emerald-br)}
 .curso-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:11px;font-family:var(--mono);font-weight:600;font-size:14px;border:1px solid var(--line);color:var(--text);transition:.22s}
 .curso-btn:hover{border-color:rgba(52,211,153,.5);color:var(--emerald-br);background:rgba(16,185,129,.04)}
 .curso-soon{font-size:11px;color:var(--muted-2);margin-top:10px;text-align:center}

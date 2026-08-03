@@ -19,7 +19,6 @@ Abra http://localhost:3000
 
 Abra **`app/config.js`**. Lá você troca:
 - WhatsApp e Instagram
-- Nome e número do **CNPI** (está como `[a confirmar]` — troque quando tiver)
 - Preços e links de checkout (Hotmart)
 - Dados da **"A semana da sala"** (positivo / negativo / aprendendo + referência)
 
@@ -53,4 +52,4 @@ npm run start   # porta 3000 — use pm2 + nginx como proxy reverso
 ## Compliance
 
 Sem promessa de ganho, sem porcentagem de retorno, sem forex. Dados da semana são
-declarados pelos alunos (enquete), com caráter informativo. Aviso legal com CNPI no rodapé.
+declarados pelos alunos (enquete), com caráter informativo. Aviso legal de risco no rodapé.

@@ -13,9 +13,9 @@ function getCursoImage(slug) {
 }
 
 export default function Cursos() {
-  const { salaLive, scalp, leilao, gl2 } = config.produtos;
+  const { sala, scalp, leilao, gl2 } = config.produtos;
   const cursos = [
-    { ...salaLive, tag: "Ao vivo", slug: "gl" },
+    { ...sala, tag: "Ao vivo", slug: "gl" },
     { ...scalp, tag: "Entrada", slug: "scalp" },
     { ...leilao, tag: "Entrada", slug: "leilao" },
     { ...gl2, tag: "Método completo", slug: "linear" },
@@ -50,7 +50,9 @@ export default function Cursos() {
                 <span className="curso-tag">{c.tag}</span>
                 <h3>{c.nome}</h3>
                 <p>{c.desc}</p>
-                <div className="curso-price">{c.preco}</div>
+                <div className="curso-price">
+                  {c.preco}{c.periodo ? <span className="curso-period">{c.periodo}</span> : null}
+                </div>
                 <a
                   href={c.url}
                   target={emBreve ? undefined : "_blank"}
@@ -58,7 +60,7 @@ export default function Cursos() {
                   className="curso-btn"
                   aria-disabled={emBreve}
                 >
-                  {emBreve ? "Em breve" : "Ver o curso"} <ArrowUpRight size={16} />
+                  {emBreve ? "Em breve" : (c.ctaLabel || "Ver o curso")} <ArrowUpRight size={16} />
                 </a>
               </article>
             );
