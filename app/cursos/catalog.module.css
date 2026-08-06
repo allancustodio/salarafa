@@ -151,7 +151,7 @@
   .hero h1 { font-size: clamp(42px, 12vw, 58px); }
   .heroCopy > p { font-size: 14px; }
   .heroPhoto { min-height: 310px; width: min(100%, 370px); margin: 0 auto; }
-  .heroPhoto img { transform: translateX(7%); transform-origin: center bottom; }
+  .heroPhoto img { transform: translate(7%, -9%); transform-origin: center bottom; }
   .photoCaption { right: 0; bottom: 18px; }
   .catalog { padding-top: 72px; }
   .catalogHead { margin-bottom: 44px; }
