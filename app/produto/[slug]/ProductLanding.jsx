@@ -18,7 +18,7 @@ import { productOrder, products } from "../data";
 import styles from "./product.module.css";
 
 const testimonialFiles = [
-  "3450656c-2428-48d8-836c-d2ef99fea70a.JPG",
+  "relato-aluno-1.jpg",
   "459bc206-8393-442d-8d9e-a5b30051a4d3.JPG",
   "ca226fad-d774-4f2c-897a-9318d0851f37.JPG",
   "c7ccbbd9-4285-4bbf-bf12-4d8300d7e725.JPG",
