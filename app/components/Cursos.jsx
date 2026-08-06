@@ -52,6 +52,7 @@ export default function Cursos() {
                 <p>{c.desc}</p>
                 <div className="curso-price">
                   {c.preco}{c.periodo ? <span className="curso-period">{c.periodo}</span> : null}
+                  {c.nota ? <small className="curso-price-note">{c.nota}</small> : null}
                 </div>
                 <a
                   href={c.url}

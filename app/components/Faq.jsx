@@ -22,7 +22,7 @@ const ITEMS = [
   },
   {
     q: "Como funciona a assinatura da sala?",
-    a: "A Sala Rafael Fossalussa é apresentada no site no plano semestral, com duração de 6 meses, pelo equivalente a R$ 200 por mês. As condições finais de cobrança e pagamento são exibidas no checkout da Hotmart antes da confirmação.",
+    a: "A Sala Rafael Fossalussa funciona no plano trimestral, com cobrança recorrente de R$ 749 a cada 3 meses — equivalente a R$ 249,67 por mês. As condições finais e as formas de pagamento são exibidas no checkout da Hotmart antes da confirmação.",
   },
   {
     q: "Isso é recomendação de investimento?",

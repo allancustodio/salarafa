@@ -18,9 +18,9 @@ export const config = {
   produtos: {
     sala: {
       nome: "Sala Rafael Fossalussa",
-      preco: "R$ 200",
+      preco: "R$ 249,67",
       periodo: "/mês",
-      nota: "Plano semestral · 6 meses",
+      nota: "Plano trimestral · R$ 749 a cada 3 meses",
       desc: "Transmissão ao vivo diária com operações reais e análise em tempo real.",
       ctaLabel: "Ver Sala",
       url: "/produto/sala-gl",

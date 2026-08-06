@@ -16,10 +16,10 @@ export const products = {
     accent: "#34d399",
     accentRgb: "52,211,153",
     checkout:
-      "https://pay.hotmart.com/X102809916R?sck=HOTMART_PRODUCT_PAGE&off=zeu68ozr&hotfeature=32",
-    price: "R$ 200",
+      "https://pay.hotmart.com/X102809916R?off=yia06p8e",
+    price: "R$ 249,67",
     priceSuffix: "/mês",
-    priceNote: "Plano semestral · 6 meses",
+    priceNote: "Plano trimestral · R$ 749 a cada 3 meses",
     cta: "Quero entrar na Sala GL",
     microcopy: "Você será direcionado ao checkout seguro da Hotmart.",
     heroBullets: [
@@ -60,7 +60,7 @@ export const products = {
       { q: "Preciso já saber operar?", a: "Não. A sala recebe pessoas em diferentes níveis. O mais importante é acompanhar com postura de estudo e respeitar seu próprio momento antes de operar capital real." },
       { q: "Quais mercados são acompanhados?", a: "A sala trabalha a leitura de mini índice e mini dólar na B3, conectada ao que acontece em referências globais como Nasdaq, ouro, Bitcoin e S&P." },
       { q: "A sala fornece sinais de entrada?", a: "Não. A proposta é educacional: você acompanha a leitura, os critérios, a gestão e a tomada de decisão. Nenhuma análise constitui recomendação de investimento." },
-      { q: "Como funciona a cobrança?", a: "A Sala GL é apresentada no site no plano semestral, com duração de 6 meses, pelo equivalente a R$ 200 por mês. As condições finais de cobrança e pagamento aparecem antes da confirmação no checkout da Hotmart." },
+      { q: "Como funciona a cobrança?", a: "A Sala GL funciona no plano trimestral, com cobrança recorrente de R$ 749 a cada 3 meses — equivalente a R$ 249,67 por mês. As condições finais e as formas de pagamento aparecem antes da confirmação no checkout da Hotmart." },
       { q: "Quem conduz a sala?", a: "Rafael Fossalussa conduz a sala e apresenta sua leitura, seus critérios de gestão e o raciocínio por trás das decisões em caráter educacional." },
     ],
   },
