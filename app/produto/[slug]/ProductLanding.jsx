@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 import { productOrder, products } from "../data";
+import CookiePreferencesButton from "../../components/CookiePreferencesButton";
 import styles from "./product.module.css";
 
 const testimonialFiles = [
@@ -356,7 +357,15 @@ export default function ProductLanding({ product }) {
           <p className={styles.legal}>
             <b>Aviso legal:</b> Todo o conteúdo tem caráter exclusivamente educacional e informativo e não constitui recomendação, consultoria ou oferta de compra ou venda de ativos. Operações em renda variável envolvem risco de perda, inclusive do capital investido. Resultados passados e relatos individuais não garantem resultados futuros.
           </p>
-          <div className={styles.footerBottom}><span>© 2026 Rafael Fossalussa. Todos os direitos reservados.</span><Link href="/">Voltar ao site principal</Link></div>
+          <div className={styles.footerBottom}>
+            <span>© 2026 Rafael Fossalussa. Todos os direitos reservados.</span>
+            <div className="legal-footer-links">
+              <Link href="/privacidade">Privacidade</Link>
+              <Link href="/cookies">Cookies</Link>
+              <CookiePreferencesButton />
+              <Link href="/">Voltar ao site principal</Link>
+            </div>
+          </div>
         </div>
       </footer>
 

@@ -3,15 +3,20 @@ import Link from "next/link";
 import { ArrowRight, BarChart3, Check, LockKeyhole, ShieldCheck } from "lucide-react";
 
 import { products } from "../produto/data";
+import CookiePreferencesButton from "../components/CookiePreferencesButton";
 import styles from "./catalog.module.css";
 
 export const metadata = {
   title: "Cursos e Sala | Rafael Fossalussa",
   description:
     "Conheça a Sala Rafael Fossalussa e os treinamentos Gradiente Linear 2.0, Método Scalping e Abertura no Dólar.",
+  alternates: {
+    canonical: "/cursos",
+  },
   openGraph: {
     title: "Cursos e Sala | Rafael Fossalussa",
     description: "Escolha seu próximo passo no mercado com Rafael Fossalussa.",
+    url: "/cursos",
     images: [{ url: "/rafa_preview.png" }],
   },
 };
@@ -181,9 +186,13 @@ export default function CoursesCatalog() {
           de investimento. Operações em renda variável envolvem risco de perda. Resultados passados não
           garantem resultados futuros.
         </p>
+        <div className="legal-footer-links">
+          <Link href="/privacidade">Privacidade</Link>
+          <Link href="/cookies">Cookies</Link>
+          <CookiePreferencesButton />
+        </div>
         <span className={styles.secure}><LockKeyhole size={13} /> Compras processadas pela Hotmart</span>
       </footer>
     </div>
   );
 }
-

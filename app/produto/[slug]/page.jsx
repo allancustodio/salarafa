@@ -14,9 +14,13 @@ export function generateMetadata({ params }) {
   return {
     title: `${product.name} | Rafael Fossalussa`,
     description: product.summary,
+    alternates: {
+      canonical: `/produto/${product.slug}`,
+    },
     openGraph: {
       title: `${product.name} | Rafael Fossalussa`,
       description: product.summary,
+      url: `/produto/${product.slug}`,
       images: [{ url: product.image }],
       type: "website",
     },
@@ -29,4 +33,3 @@ export default function ProductPage({ params }) {
 
   return <ProductLanding product={product} />;
 }
-

@@ -1,4 +1,5 @@
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import ConsentManager from "./components/ConsentManager";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -21,7 +22,10 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://salarafafossalussa.teksolutions.io"),
+  metadataBase: new URL("https://rafaelfossalussa.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Rafael Fossalussa — Trader profissional e educador",
   description:
     "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global. Método, disciplina e leitura de verdade.",
@@ -29,11 +33,11 @@ export const metadata = {
     title: "Rafael Fossalussa — Trader profissional e educador",
     description:
       "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global. Método, disciplina e leitura de verdade.",
-    url: "https://salarafafossalussa.teksolutions.io",
+    url: "https://rafaelfossalussa.com",
     type: "website",
     images: [
       {
-        url: "https://salarafafossalussa.teksolutions.io/rafa_preview.png",
+        url: "https://rafaelfossalussa.com/rafa_preview.png",
         width: 1200,
         height: 630,
         alt: "Rafael Fossalussa - Trader profissional",
@@ -45,7 +49,7 @@ export const metadata = {
     title: "Rafael Fossalussa — Trader profissional e educador",
     description:
       "De vendedor de verdura a trader profissional. Sala ao vivo: índice, dólar e o mercado global.",
-    image: "https://salarafafossalussa.teksolutions.io/rafa_preview.png",
+    images: ["https://rafaelfossalussa.com/rafa_preview.png"],
   },
 };
 
@@ -54,6 +58,7 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <body className={`${display.variable} ${body.variable} ${mono.variable}`}>
         {children}
+        <ConsentManager />
       </body>
     </html>
   );

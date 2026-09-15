@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 import { config } from "../config";
+import CookiePreferencesButton from "./CookiePreferencesButton";
 
 export default function Footer() {
   const waLink = `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(config.whatsappMsg)}`;
@@ -34,6 +37,12 @@ export default function Footer() {
                 Instagram {config.instagramHandle}
               </a>
               <a href={waLink} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+            <div className="fcol">
+              <h4>Privacidade</h4>
+              <Link href="/privacidade">Política de Privacidade</Link>
+              <Link href="/cookies">Política de Cookies</Link>
+              <CookiePreferencesButton />
             </div>
           </div>
         </div>

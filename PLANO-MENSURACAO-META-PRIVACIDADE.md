@@ -3,7 +3,7 @@
 **Projeto:** Rafael Fossalussa  
 **Domínio principal:** `https://rafaelfossalussa.com`  
 **Data da análise:** 14 de setembro de 2026  
-**Status:** planejamento — nenhuma implementação autorizada ou realizada
+**Status:** implementação local concluída em 14 de setembro de 2026 — publicação na VPS e validação em produção pendentes
 
 ---
 
@@ -164,6 +164,14 @@ E então:
 - cadastrar o domínio no Google Search Console;
 - criar e enviar o sitemap;
 - limpar o cache do Cloudflare após a publicação.
+
+### 5.4 Verificação do domínio na Meta
+
+Em 14 de setembro de 2026, foi criado no DNS da Cloudflare o registro TXT de verificação fornecido pela Meta para `rafaelfossalussa.com`. A consulta ao DNS público confirmou que o registro `facebook-domain-verification` estava propagado e, na sequência, a Meta confirmou o domínio com status `Verificado` no portfólio empresarial Rafael Fossalussa.
+
+Após a verificação, a Página oficial do Facebook apresentada pela Meta foi conectada ao domínio. Nenhum ativo adicional ou página de terceiros foi associado nessa etapa.
+
+O valor integral do token de verificação DNS não é reproduzido neste documento. O registro deve ser mantido na Cloudflare mesmo depois da verificação para preservar a comprovação de controle do domínio.
 
 ---
 
@@ -627,7 +635,141 @@ A Meta recebe eventos do site e/ou Hotmart para medição, correspondência, atr
 - Gerar token da Conversions API em ambiente seguro.
 - Nunca inserir token em código público ou documentação versionada.
 
-### 15.2 Configuração por produto
+#### 15.1.1 Estado confirmado no Gerenciador de Eventos em 14/09/2026
+
+Configuração observada para o conjunto de dados/Pixel `1719570872434737`:
+
+- proprietário: portfólio empresarial Rafael Fossalussa (`751420617213925`);
+- conta de anúncios vinculada: RafaelFossalussa-Oficial (`1069185759314392`);
+- categoria do conjunto de dados: `Financial service`;
+- `Core setup`: ativado;
+- cookies primários (`First-party cookies`): ativados;
+- correspondência avançada automática (`Automatic website matching`): ativada;
+- rastreamento automático sem código: desativado;
+- conexão exibida na seção Conversions API: `Web-only — Connection pending`;
+- última atividade indicada pelo painel: no mesmo dia da conferência.
+
+A categoria `Financial service` explica o aviso de novas restrições. Com o `Core setup` ativo, a Meta pode limitar parâmetros personalizados e remover da URL as partes posteriores ao domínio. A classificação não deve ser alterada apenas para contornar controles. Uma revisão somente deve ser solicitada caso a descrição da atividade real demonstre que a categoria foi atribuída incorretamente.
+
+Antes de marcar o aviso como resolvido, revisar no painel:
+
+1. `Manage parameter blocking`, para identificar parâmetros bloqueados;
+2. `Manage event blocking`, para identificar eventos bloqueados ou sob revisão;
+3. os domínios efetivamente recebidos em `Event source URL`;
+4. a presença dos eventos Web e Server na visão geral do conjunto de dados.
+
+Os comandos `Ignore` e `Mark as resolved` apenas organizam o aviso no painel; não desligam o `Core setup` e não removem restrições.
+
+Decisão registrada em 14 de setembro de 2026: as duas confirmações `I acknowledge`, exigidas para acessar as listas de bloqueio de parâmetros e eventos, não foram aceitas durante o acesso técnico temporário. O aceite ficará para o titular ou representante expressamente autorizado do negócio. Essa pendência não altera por si mesma o disparo dos eventos, mas impede concluir a auditoria das listas de bloqueio. O `Core setup` permanece ativo independentemente do aceite e pode continuar reduzindo parâmetros personalizados e trechos de URL.
+
+A opção `Set up direct integration` não deve ser concluída neste momento. A integração de servidor definida para este projeto é a da Hotmart. Criar simultaneamente uma integração direta própria, sem desenho de deduplicação, poderia produzir uma segunda origem de eventos. O estado `Connection pending` deve ser reavaliado depois que a Meta receber atividade de servidor da Hotmart, especialmente um `Purchase` real ou controlado.
+
+Na aba `Ações`, a Meta apresentou como item de alta prioridade a recomendação `Conecte a atividade de conversa de apps de mensagens comerciais`. Esse item se refere a conversas e conversões provenientes de Instagram, Messenger ou WhatsApp e não representa falha no Pixel do site nem na integração Hotmart. A configuração não foi iniciada. Ela fica fora do escopo atual e somente deve ser avaliada futuramente caso exista um processo definido de vendas por mensagens, base legal, informação de privacidade, identificação de leads e controle de duplicidade com as vendas da Hotmart.
+
+Não configurar uma lista de permissão de domínios antes de levantar todos os domínios usados pelo site e pela Hotmart. Uma lista contendo somente `rafaelfossalussa.com` poderia bloquear eventos originados nas páginas de produto, checkout ou confirmação da Hotmart.
+
+### 15.2 Parâmetros registrados no assistente da API de Conversões da Meta
+
+Configuração definida em 14 de setembro de 2026 para servir como referência em futuras integrações. O assistente foi configurado somente para os eventos de servidor que serão enviados pela Hotmart:
+
+- `InitiateCheckout`;
+- `Purchase`.
+
+Não foram incluídos no assistente de API de Conversões:
+
+- `AddPaymentInfo`, pois não faz parte do fluxo principal documentado pela Hotmart nesta integração;
+- `Search`, pois o site não possui atualmente uma busca que justifique esse evento;
+- `ViewContent`, pois este evento será enviado diretamente pelo Meta Pixel no navegador do site, e não pela API da Hotmart;
+- `PageView`, que também pertence à mensuração do navegador no site;
+- `PaymentGenerated`, pois será gerado pela própria Hotmart ao diferenciar pagamentos pendentes de compras aprovadas.
+
+#### 15.2.1 InitiateCheckout
+
+Parâmetros de detalhe do evento ativados automaticamente pela Meta:
+
+- Event time;
+- Event name;
+- Event source URL;
+- Action source.
+
+Parâmetro de detalhe ativado manualmente:
+
+- Event ID.
+
+Parâmetros de informações do cliente ativados:
+
+- Client IP address — do not hash;
+- Client user agent — do not hash;
+- Click ID (`fbc`) cookie — do not hash;
+- Browser ID (`fbp`) cookie — do not hash;
+- Email address;
+- Phone number.
+
+Parâmetros deixados desativados:
+
+- Opt out;
+- Data processing options;
+- Data processing options country;
+- Data processing options region;
+- Country;
+- Town/city;
+- Date of birth;
+- External ID;
+- First name;
+- Gender;
+- Surname;
+- County/region;
+- Subscription ID — do not hash;
+- Postcode.
+
+Observação: a Hotmart dispara `InitiateCheckout` quando a página de pagamento é carregada. E-mail e telefone podem ainda não estar disponíveis nesse instante. Deixá-los selecionados no assistente registra a intenção de utilizá-los quando disponíveis, mas não obriga a Hotmart a enviá-los e não garante seu preenchimento em todos os eventos. A disponibilidade real deverá ser confirmada em Eventos de Teste e na qualidade de correspondência apresentada pela Meta.
+
+#### 15.2.2 Purchase
+
+Parâmetros de detalhe do evento ativados automaticamente pela Meta:
+
+- Event time;
+- Event name;
+- Event source URL;
+- Action source;
+- Currency;
+- Value.
+
+Parâmetro de detalhe ativado manualmente:
+
+- Event ID.
+
+Parâmetros de informações do cliente ativados:
+
+- Client IP address — do not hash;
+- Client user agent — do not hash;
+- Click ID (`fbc`) cookie — do not hash;
+- Browser ID (`fbp`) cookie — do not hash;
+- Email address;
+- Phone number;
+- External ID;
+- First name;
+- Surname.
+
+Parâmetros deixados desativados:
+
+- Opt out;
+- Data processing options;
+- Data processing options country;
+- Data processing options region;
+- Country;
+- Town/city;
+- Date of birth;
+- Gender;
+- County/region;
+- Subscription ID — do not hash;
+- Postcode.
+
+O `Event ID` deverá estar presente nos eventos enviados por Web e API para permitir a deduplicação. A seleção de um parâmetro no assistente não faz com que ele seja enviado automaticamente: o conteúdo efetivamente recebido dependerá da integração mantida pela Hotmart e deverá ser validado após a configuração.
+
+Dados pessoais não deverão ser inseridos manualmente em URLs, no código-fonte, no GTM ou na documentação. Dados que exigem hash deverão ser normalizados e protegidos pela plataforma responsável pelo envio. Token de acesso e códigos de teste também não deverão ser armazenados neste documento.
+
+### 15.3 Configuração por produto
 
 Na Hotmart:
 
@@ -644,8 +786,56 @@ Repetir para:
 1. Sala GL 2.0;
 2. Fluxo de Abertura no Dólar;
 3. Método Scalping;
-4. Gradiente Linear 2.0;
-5. eventuais order bumps, upsells ou produtos complementares.
+4. Gradiente Linear 2.0.
+
+O escopo atual é limitado a esses quatro produtos. Novos produtos, order bumps ou upsells deverão ser avaliados e incluídos explicitamente em uma revisão futura.
+
+#### 15.3.1 Inventário encontrado na Hotmart antes da migração
+
+Inventário realizado em 14 de setembro de 2026, antes de salvar qualquer alteração nas integrações existentes:
+
+| Produto | Identificador conhecido | Situação encontrada | Pixel anterior | Configuração anterior observada |
+|---|---|---|---|---|
+| Sala GL 2.0 | checkout `X102809916R` | Novo Pixel configurado em 14/09/2026 | `1719570872434737` | Web + API; vendas realizadas; visitas à página de pagamento; visitas à página de produto Hotmart; todos os métodos; diferenciação de pagamentos ativada; valor da transação |
+| Fluxo de Abertura no Dólar | checkout `Q95182127U` | Novo Pixel configurado em 14/09/2026 | `1719570872434737` | Web + API; vendas realizadas; visitas à página de pagamento; visitas à página de produto Hotmart; todos os métodos; diferenciação de pagamentos ativada; valor da transação |
+| Método Scalping | produto Hotmart `4447942`; checkout `Q95155469K` | Novo Pixel adicionado em 14/09/2026; integração legada preservada | `1072015684744678` | Configuração legada observada: API; vendas realizadas; visitas à página de pagamento; visitas à página de produto Hotmart; todos os métodos; valor da transação |
+| Gradiente Linear 2.0 | checkout `C103100615H` | Novo Pixel adicionado em 14/09/2026; integração legada preservada | `25758779570406929` | Configuração legada observada: API; vendas realizadas; visitas à página de pagamento; visitas à página de produto Hotmart; todos os métodos; valor da transação |
+
+#### 15.3.2 Comparação com o Pixel legado do Gradiente Linear
+
+Em 14 de setembro de 2026, o conjunto de dados `25758779570406929` foi consultado no Gerenciador de Eventos sem alterações. Estado observado:
+
+- proprietário: portfólio Rafael Fossalussa (`751420617213925`);
+- conta de anúncios vinculada: Paulo (`703981928839365`), diferente da conta RafaelFossalussa-Oficial usada no novo projeto;
+- categoria do conjunto de dados: nenhuma;
+- `Core setup`: desativado;
+- cookies primários: ativados;
+- correspondência avançada automática: desativada;
+- eventos automáticos: desativados;
+- inclusão automática de detalhes de páginas e produtos: ativada;
+- API de Conversões: empresa conectada e ativa, com recebimento indicado havia aproximadamente 15 minutos;
+- conjunto conectado exibido como `captura de leads gl 2.0`.
+
+A comparação demonstra que o aviso do novo Pixel não foi provocado pela seleção de `First name`: o novo conjunto está classificado como `Financial service` e possui `Core setup` ativo, enquanto o legado não tem categoria e mantém o recurso desativado. A ausência de categoria no legado não deve ser copiada para contornar as regras atuais.
+
+O recebimento recente no Pixel legado é compatível com a coexistência temporária mantida na Hotmart. Ele também confirma que o Pixel antigo ainda está operacional; por isso, não deve ser removido antes da auditoria da conta de anúncios e das campanhas associadas.
+
+Os Pixels `1072015684744678` e `25758779570406929` são tratados neste plano como ativos legados até que propriedade, atividade recente, campanhas associadas e necessidade de preservação sejam verificadas na Meta. Eles não devem ser excluídos. A substituição na Hotmart deve ocorrer apenas como corte coordenado para o novo Pixel `1719570872434737`.
+
+Para reduzir risco durante a implantação, a configuração inicial do novo Pixel começou nos dois produtos que estavam sem integração: Sala GL 2.0 e Fluxo de Abertura no Dólar. Depois dessa validação, o novo Pixel foi adicionado também ao Método Scalping e ao Gradiente Linear sem remover as integrações anteriores.
+
+Em 14 de setembro de 2026, os quatro produtos ficaram configurados no novo Pixel `1719570872434737` com o mesmo padrão:
+
+- envio via Web;
+- envio via API de Conversões com token armazenado somente na Hotmart;
+- vendas realizadas;
+- visitas à página de pagamento;
+- visitas à página de produto Hotmart;
+- todos os métodos de pagamento;
+- diferenciação entre pagamentos imediatos e não imediatos ativada;
+- valor da transação.
+
+A coexistência temporária envia eventos também aos Pixels legados nos dois produtos antigos. Isso não duplica o evento dentro do novo conjunto de dados, pois cada Pixel é uma fonte independente. Os legados devem permanecer até a auditoria das campanhas e poderão ser desativados em uma etapa posterior, mediante decisão registrada.
 
 Em cada produto:
 
@@ -659,7 +849,7 @@ Em cada produto:
 - revisar as opções avançadas;
 - salvar.
 
-### 15.3 Pagamentos imediatos e não imediatos
+### 15.4 Pagamentos imediatos e não imediatos
 
 Ativar a diferenciação para impedir que um boleto ou Pix apenas gerado seja contabilizado como compra aprovada.
 
@@ -673,9 +863,13 @@ Pagamento efetivamente aprovado → Purchase
 
 A documentação atual da Hotmart deve ser confirmada no painel e por testes, principalmente para Pix aprovado posteriormente.
 
-### 15.4 Valor enviado
+### 15.5 Valor enviado
 
-Definir previamente qual métrica será usada:
+Foi definido o envio do valor real da transação informado pela Hotmart, em vez de um valor fixo de otimização.
+
+Na validação, deve-se confirmar como o painel da Hotmart denomina e calcula esse valor, que pode representar o comissionamento da venda. A interpretação precisa ficar documentada para que o ROAS não seja comparado indevidamente com preço bruto, valor líquido ou faturamento contábil.
+
+Outras métricas que não foram escolhidas para o evento, mas podem existir nos relatórios, incluem:
 
 - preço bruto do produto;
 - valor efetivamente pago;
@@ -685,7 +879,7 @@ Definir previamente qual métrica será usada:
 
 O valor escolhido influencia o ROAS. Meta Ads e Hotmart precisam ser comparados usando a mesma definição ou ter diferenças documentadas.
 
-### 15.5 Recorrência da Sala GL
+### 15.6 Recorrência da Sala GL
 
 Verificar se a Hotmart envia `Purchase` para:
 
@@ -696,7 +890,7 @@ Verificar se a Hotmart envia `Purchase` para:
 
 Se renovações forem contabilizadas como novas compras atribuídas às campanhas, o ROAS de aquisição pode ficar artificialmente elevado.
 
-### 15.6 Reembolso e chargeback
+### 15.7 Reembolso e chargeback
 
 Definir como:
 
@@ -963,6 +1157,28 @@ Verificar que cada rota gere apenas um `PageView` e cada visualização de produ
 
 ### 19.3 Hotmart
 
+Validação inicial realizada em 14 de setembro de 2026:
+
+- produtos testados: Fluxo de Abertura no Dólar e Sala GL 2.0;
+- checkouts utilizados: `Q95182127U` e `X102809916R`;
+- ferramenta: extensão oficial da Meta para diagnóstico do Pixel;
+- Pixel identificado: `1719570872434737`;
+- evento Web `PageView`: recebido;
+- evento Web `InitiateCheckout`: recebido;
+- no checkout Sala GL 2.0, o Gerenciador de Eventos registrou quatro ocorrências recentes de `InitiateCheckout`, todas classificadas como `Navegador`;
+- o evento de navegador apresentou `fbp` e `event_id`, mas os campos de correspondência de telefone, e-mail, nome e sobrenome estavam vazios no carregamento inicial do checkout, comportamento esperado antes do preenchimento pelo comprador;
+- a URL exibida como localização do Pixel continha o checkout completo, mas o parâmetro `dl` efetivamente transmitido foi reduzido a `https://pay.hotmart.com`, confirmando na prática a limitação de caminho aplicada pelo `Core setup`;
+- o `InitiateCheckout` Web observado não apresentou parâmetros de produto, oferta, valor ou moeda no chamado analisado; por isso, esse evento isolado ainda não permite separar com segurança os quatro produtos em audiências;
+- resultado: envio pelo navegador confirmado;
+- pendência: confirmar no Gerenciador de Eventos o recebimento por Servidor/API e a deduplicação;
+- pendência: verificar se o evento de Servidor/API inclui um identificador de produto permitido e utilizável para segmentação;
+- pendência: validar os outros dois checkouts;
+- pendência: validar `Purchase` com uma transação controlada.
+
+O valor interno `cdl=API_unavailable` apareceu na chamada Web do Pixel. Ele não deve ser interpretado como prova de falha na Conversions API: trata-se de um campo do chamado realizado pelo navegador, enquanto a entrega da CAPI precisa ser confirmada separadamente pela classificação `Servidor` no Gerenciador de Eventos.
+
+No print da extensão aberto sobre o próprio Gerenciador de Eventos, foi mostrado o Pixel `517991158551582`. Esse identificador pertence ao contexto da página da Meta visualizada e não corresponde ao Pixel do projeto. Para validar um checkout, a extensão deve estar aberta na aba `pay.hotmart.com`; para validar o site, deve estar aberta na aba `rafaelfossalussa.com`.
+
 Para cada produto:
 
 - checkout aberto;
@@ -1179,26 +1395,20 @@ Para cada produto:
 
 ---
 
-## 24. Decisões pendentes
+## 24. Decisões ainda pendentes
 
-Antes de iniciar desenvolvimento, aprovar:
+Depois da configuração do Pixel, da Hotmart e da implementação local descrita neste documento, ainda precisam ser definidos ou validados:
 
-1. domínio canônico sem `www`;
-2. ferramenta de Analytics;
-3. solução de gerenciamento de consentimento;
-4. base legal por categoria de tratamento;
-5. política para TradingView;
-6. definição de compra aprovada;
-7. valor usado para ROAS;
-8. tratamento de Pix, boleto e PayPal;
-9. tratamento de renovações;
-10. tratamento de reembolsos;
-11. convenção de UTMs e SCK;
-12. taxonomia final de eventos;
-13. janelas de audiência;
-14. autorização ou anonimização dos depoimentos;
-15. revisão da seção “Semana da Sala”;
-16. parecer jurídico/regulatório sobre a comunicação e o formato da sala ao vivo.
+1. ferramenta de Analytics e respectiva propriedade, caso seja adotado o GA4;
+2. convenção definitiva de UTMs e SCK;
+3. tratamento de renovações e reembolsos em relatórios e audiências;
+4. janelas finais das audiências;
+5. canal formal de privacidade e identificação jurídica do controlador;
+6. autorização ou anonimização dos depoimentos;
+7. revisão da seção “Semana da Sala”;
+8. parecer jurídico/regulatório sobre a comunicação, as políticas e o formato da sala ao vivo;
+9. validação de `Purchase`, valor, moeda, método Web/API e deduplicação em uma compra real ou controlada;
+10. publicação na VPS, revisão de Nginx/Cloudflare e testes no domínio de produção.
 
 ---
 
@@ -1242,7 +1452,68 @@ Antes de iniciar desenvolvimento, aprovar:
 
 ---
 
-## 26. Observação final
+## 26. Registro da implementação local
+
+Implementação concluída no repositório local em 14 de setembro de 2026. Nenhuma publicação na VPS foi realizada nesta etapa.
+
+### 26.1 Consentimento e carregamento das ferramentas
+
+- gerenciador próprio de consentimento adicionado globalmente ao site;
+- categorias: `Necessários`, `Análise` e `Publicidade e marketing`;
+- opções visíveis de aceitar todos, rejeitar opcionais e configurar por categoria;
+- preferência registrada no `localStorage` sob a chave `rf_cookie_consent_v1`, versão `1`, com validade de 180 dias;
+- GTM `GTM-5Q9PQTFC` carregado somente quando `Análise` ou `Publicidade e marketing` estiver autorizada;
+- Meta Pixel `1719570872434737` carregado somente quando `Publicidade e marketing` estiver autorizada;
+- Google Consent Mode inicializado com armazenamentos opcionais negados e atualizado após a escolha;
+- revogação disponível nos rodapés e nas páginas legais, com interrupção de novos eventos e tentativa de remoção dos cookies primários conhecidos da Meta e do Google;
+- iframe `noscript` do GTM e imagem `noscript` do Meta Pixel não foram adicionados, pois poderiam efetuar conexões de rastreamento sem uma escolha executável de consentimento quando o JavaScript estivesse desativado.
+
+O container do GTM foi auditado pela versão pública entregue pelo Google na data da implementação. Não foram identificadas tags do novo Pixel, GA4 ou Google Ads. O Meta Pixel foi instalado diretamente no site e não deverá ser repetido futuramente dentro do GTM, para evitar eventos duplicados.
+
+### 26.2 Eventos implementados no site
+
+- `PageView`: enviado pelo Meta Pixel para cada rota realmente visitada, após consentimento de marketing;
+- `ViewContent`: enviado nas quatro rotas `/produto/*`, após consentimento de marketing;
+- `checkout_click`: enviado somente ao `dataLayer`, após consentimento de análise, quando o visitante clica em um link real de checkout da Hotmart;
+- `whatsapp_click`: enviado somente ao `dataLayer`, após consentimento de análise, quando o visitante abre um link do WhatsApp;
+- nenhum `Purchase` é criado no site;
+- nenhum `InitiateCheckout` é criado no clique do site. Esse evento fica com a Hotmart quando a página de pagamento efetivamente carrega.
+
+O `ViewContent` foi implementado sem nome, categoria, valor ou identificadores do produto. Essa minimização é intencional devido à classificação financeira e ao `Core setup` aplicado pela Meta. A rota ainda existe no navegador, mas a Meta pode reduzir o caminho da URL. Portanto, a possibilidade de criar audiências específicas por produto deverá ser confirmada no Gerenciador de Eventos após a publicação; não se deve contornar a restrição reencodando o produto em parâmetros ou nomes de eventos.
+
+### 26.3 Transparência, SEO e acesso às escolhas
+
+- criadas as rotas `/privacidade` e `/cookies`;
+- adicionados links para as políticas e para `Gerenciar cookies` nos rodapés disponíveis;
+- domínio base, canonicals e metadados sociais atualizados para `https://rafaelfossalussa.com`;
+- criados `robots.txt` e `sitemap.xml` pela estrutura do Next.js;
+- TradingView documentado como conteúdo externo funcional;
+- o texto jurídico publicado no código é uma minuta operacional e continua sujeito à validação profissional indicada na observação final.
+
+### 26.4 Validação local executada
+
+- build de produção do Next.js concluído com sucesso;
+- treze rotas geradas, incluindo home, cursos, quatro produtos, políticas, sitemap e robots;
+- todas as páginas públicas do escopo responderam HTTP `200` no servidor local de produção;
+- o HTML inicial não contém carregamento antecipado do GTM ou Meta Pixel;
+- em navegador automatizado com sessão limpa, o banner apareceu e nenhuma chamada ao GTM/Meta ocorreu antes da escolha;
+- após rejeitar opcionais, nenhuma chamada ao GTM/Meta ocorreu;
+- após aceitar as categorias, GTM e biblioteca do Meta Pixel carregaram, `PageView` e `ViewContent` foram observados e a preferência permaneceu armazenada.
+
+### 26.5 Próxima etapa operacional
+
+Depois de autorizar a publicação, será necessário:
+
+1. gerar e implantar o build na VPS pelo processo já usado pelo projeto;
+2. revisar Nginx, redirecionamento de `www`, HTTPS e cache da Cloudflare;
+3. testar aceite, rejeição e revogação em navegador comum no domínio oficial;
+4. validar `PageView` e `ViewContent` em Eventos de Teste da Meta;
+5. abrir os quatro checkouts e validar `InitiateCheckout`;
+6. realizar uma compra real ou controlada para validar `Purchase`, valor, moeda, servidor/navegador e deduplicação;
+7. somente depois criar audiências e usar `Purchase` como evento de otimização.
+
+---
+
+## 27. Observação final
 
 Este documento é um plano técnico, operacional e de boas práticas. Ele não constitui parecer jurídico. A redação das políticas, a base legal escolhida, a transferência internacional de dados, o uso de depoimentos e o enquadramento regulatório da atividade devem ser validados por profissional qualificado antes da publicação e da ampliação de tráfego pago.
-
