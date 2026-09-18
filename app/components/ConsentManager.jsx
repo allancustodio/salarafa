@@ -8,7 +8,6 @@ const CONSENT_KEY = "rf_cookie_consent_v1";
 const CONSENT_VERSION = 1;
 const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 const GTM_ID = "GTM-5Q9PQTFC";
-const GTM2_ID = "GTM-TNXFT6ZT";
 const META_PIXEL_ID = "1719570872434737";
 const GTAG_ID = "G-FW6HQ365EW";
 
@@ -49,19 +48,6 @@ function loadGoogleTagManager() {
   script.id = "rf-gtm-script";
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
-  document.head.appendChild(script);
-}
-
-function loadGoogleTagManager2() {
-  if (document.getElementById("rf-gtm2-script")) return;
-
-  ensureDataLayer();
-  window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
-
-  const script = document.createElement("script");
-  script.id = "rf-gtm2-script";
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM2_ID}`;
   document.head.appendChild(script);
 }
 
@@ -207,7 +193,6 @@ export default function ConsentManager() {
 
     if (preferences.analytics || preferences.marketing) {
       loadGoogleTagManager();
-      loadGoogleTagManager2();
     }
 
     if (preferences.analytics) {
