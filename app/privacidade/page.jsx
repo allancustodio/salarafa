@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
         <header>
           <span>Privacidade e proteção de dados</span>
           <h1>Política de Privacidade</h1>
-          <p>Versão de 14 de setembro de 2026.</p>
+          <p>Versão de 18 de setembro de 2026.</p>
         </header>
 
         <section>
@@ -84,6 +84,7 @@ export default function PrivacyPolicy() {
             <li><strong>infraestrutura do site:</strong> hospedagem da aplicação e registros técnicos;</li>
             <li><strong>TradingView:</strong> fornecimento da fita de cotações, com recebimento de dados técnicos necessários à conexão;</li>
             <li><strong>Google Tag Manager:</strong> gerenciamento de tags, carregado apenas após autorização de categoria opcional;</li>
+            <li><strong>Google Analytics (GA4):</strong> mensuração de audiência e comportamento no site (páginas visitadas, cliques em botões de checkout e WhatsApp, rolagem), carregado apenas após autorização da categoria Análise;</li>
             <li><strong>Meta:</strong> mensuração e publicidade, quando autorizadas;</li>
             <li><strong>Hotmart:</strong> páginas de produto, checkout, pagamentos, entrega e eventos comerciais;</li>
             <li><strong>WhatsApp e Instagram:</strong> comunicação iniciada por você.</li>

@@ -17,7 +17,7 @@ export default function CookiePolicy() {
         <header>
           <span>Transparência e escolhas</span>
           <h1>Política de Cookies</h1>
-          <p>Versão de 14 de setembro de 2026.</p>
+          <p>Versão de 18 de setembro de 2026.</p>
         </header>
 
         <section>
@@ -64,6 +64,11 @@ export default function CookiePolicy() {
                   <td>Google Tag Manager</td>
                   <td>Google</td>
                   <td>Gerencia tags após autorização. O container não deve liberar fornecedores incompatíveis com a escolha registrada.</td>
+                </tr>
+                <tr>
+                  <td><code>_ga</code>, <code>_gid</code> e <code>_ga_*</code></td>
+                  <td>Google Analytics (GA4)</td>
+                  <td>Identificação do navegador para mensuração de audiência, páginas visitadas e interações (cliques, rolagem), apenas com autorização da categoria Análise. A duração é definida pelo Google.</td>
                 </tr>
                 <tr>
                   <td>Controles técnicos e de segurança</td>
