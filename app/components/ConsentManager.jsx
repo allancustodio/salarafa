@@ -9,6 +9,7 @@ const CONSENT_VERSION = 1;
 const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 const GTM_ID = "GTM-5Q9PQTFC";
 const META_PIXEL_ID = "1719570872434737";
+const GTAG_ID = "G-FW6HQ365EW";
 
 const EMPTY_PREFERENCES = {
   necessary: true,
@@ -48,6 +49,21 @@ function loadGoogleTagManager() {
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
   document.head.appendChild(script);
+}
+
+function loadGoogleTag() {
+  if (document.getElementById("rf-gtag-script")) return;
+
+  ensureDataLayer();
+
+  const script = document.createElement("script");
+  script.id = "rf-gtag-script";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`;
+  document.head.appendChild(script);
+
+  window.gtag("js", new Date());
+  window.gtag("config", GTAG_ID);
 }
 
 function loadMetaPixel() {
@@ -177,6 +193,10 @@ export default function ConsentManager() {
 
     if (preferences.analytics || preferences.marketing) {
       loadGoogleTagManager();
+    }
+
+    if (preferences.analytics) {
+      loadGoogleTag();
     }
 
     if (preferences.marketing) {
